@@ -16,7 +16,7 @@ import Home from '@/pages/index';
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
-    <Container maxW="container.lg">
+    <Container maxW="container.lg" pt={4}>
       <Switch>
         <Route path={RoutePath.home} component={Home} />
       </Switch>
