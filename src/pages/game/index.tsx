@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  Button,
+  ButtonGroup,
   Heading,
   Text,
   VStack,
@@ -45,6 +47,7 @@ type GameState = {
 
 function Game() {
   const { config } = useConfigContext();
+  const [locale, setLocale] = React.useState<'jp' | 'kr'>('jp');
   const [gameState, setGameState] = React.useState<GameState | null>(null);
 
   React.useEffect(() => {
@@ -90,11 +93,18 @@ function Game() {
             {judgeResult ? '정답입니다 ٩(๑＞◡＜๑)۶' : '틀렸습니다 ｡°(´∩ω∩`)°｡'}
           </Text>
           {!judgeResult && (
-            <Text>{`정답은 ${answer.jpName} 입니다 (*ﾟДﾟ)`}</Text>
+            <Text>{`정답은 ${answer.name[locale]} 입니다 (*ﾟДﾟ)`}</Text>
           )}
           {/* TODO: Button for next problem / reset to home */}
         </>
       )}
+      <VStack>
+        <Heading size="sm">곡 제목 표기 언어</Heading>
+        <ButtonGroup isAttached variant="outline">
+          <Button isActive={locale === 'kr'} onClick={() => setLocale('kr')}>한국어</Button>
+          <Button isActive={locale === 'jp'} onClick={() => setLocale('jp')}>일본어</Button>
+        </ButtonGroup>
+      </VStack>
     </VStack>
   );
 }

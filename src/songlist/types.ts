@@ -1,7 +1,6 @@
 export type SongEntry = {
   id: string,
-  jpName: string,
-  krName: string,
+  name: { jp: string, kr: string, },
   year: number,
   alias: string[],
 };
