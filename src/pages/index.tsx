@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   ButtonGroup,
   Heading,
   Stack,
   Text,
+  Tooltip,
   VStack,
 } from '@chakra-ui/react';
 
 import LabeledSwitch from '@/components/LabeledSwitch';
 
 import { useConfigContext } from '@/ConfigContext';
+import { RoutePath } from '@/routes';
 import {
   LOVELIVE_SONGS,
   LOVELIVE_SUNSHINE_SONGS,
@@ -33,24 +36,30 @@ function Home() {
       <Heading size="md">게임 설정</Heading>
       <Heading size="sm">게임 모드</Heading>
       <ButtonGroup isAttached variant="outline">
-        <Button
-          isActive={config.life === 1}
-          onClick={() => setConfig({ ...config, life: 1 })}
-        >
-          서든데스
-        </Button>
-        <Button
-          isActive={config.life === 3}
-          onClick={() => setConfig({ ...config, life: 3 })}
-        >
-          일반게임
-        </Button>
-        <Button
-          isActive={config.life === 'inf'}
-          onClick={() => setConfig({ ...config, life: 'inf' })}
-        >
-          연습모드
-        </Button>
+        <Tooltip hasArrow label="틀리는 순간 게임이 끝납니다">
+          <Button
+            isActive={config.life === 1}
+            onClick={() => setConfig({ ...config, life: 1 })}
+          >
+            서든데스
+          </Button>
+        </Tooltip>
+        <Tooltip hasArrow label="3번까지는 틀려도 괜찮습니다">
+          <Button
+            isActive={config.life === 3}
+            onClick={() => setConfig({ ...config, life: 3 })}
+          >
+            일반게임
+          </Button>
+        </Tooltip>
+        <Tooltip hasArrow label="아무리 틀려도 게임이 계속됩니다">
+          <Button
+            isActive={config.life === 'inf'}
+            onClick={() => setConfig({ ...config, life: 'inf' })}
+          >
+            연습모드
+          </Button>
+        </Tooltip>
       </ButtonGroup>
       <Heading size="sm">출제 범위</Heading>
       <VStack>
@@ -113,7 +122,7 @@ function Home() {
           }}
         />
       </VStack>
-      <Button>시작!</Button>
+      <Button as={Link} to={RoutePath.game}>시작!</Button>
     </VStack>
   );
 }
