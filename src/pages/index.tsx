@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import {
   Button,
   ButtonGroup,
@@ -22,7 +22,17 @@ import {
 } from '@/songlist';
 
 function Home() {
+  const history = useHistory();
   const { config, setConfig } = useConfigContext();
+  const [errMsg, setErrMsg] = React.useState('');
+  const onStartClick = () => {
+    if (!config.ll && !config.lls && !config.niji && !config.llss) {
+      setErrMsg('최소 하나의 출제 범위는 선택되어야 합니다');
+      return;
+    }
+    history.push(RoutePath.game);
+  };
+
   return (
     <VStack spacing={4}>
       <Stack direction={{ base: 'column', md: 'row' }} alignItems="center">
@@ -122,7 +132,10 @@ function Home() {
           }}
         />
       </VStack>
-      <Button as={Link} to={RoutePath.game}>시작!</Button>
+      <Button onClick={onStartClick}>시작!</Button>
+      {errMsg !== '' && (
+        <Text color="red">{errMsg}</Text>
+      )}
     </VStack>
   );
 }
