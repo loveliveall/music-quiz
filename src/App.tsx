@@ -2,7 +2,6 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import {
   useColorMode,
-  Box,
   Center,
   Container,
   FormControl,
@@ -21,16 +20,14 @@ function App() {
         <Route path={RoutePath.home} component={Home} />
       </Switch>
       <Center py={6}>
-        <Box>
-          <FormControl display="flex" alignItems="center">
-            <FormLabel htmlFor="toggle-color-mode" mb={0}>다크 모드</FormLabel>
-            <CUISwitch
-              id="toggle-color-mode"
-              isChecked={colorMode === 'dark'}
-              onChange={toggleColorMode}
-            />
-          </FormControl>
-        </Box>
+        <FormControl display="flex" alignItems="center" w="auto">
+          <FormLabel htmlFor="toggle-color-mode" mb={0}>다크 모드</FormLabel>
+          <CUISwitch
+            id="toggle-color-mode"
+            isChecked={colorMode === 'dark'}
+            onChange={toggleColorMode}
+          />
+        </FormControl>
       </Center>
     </Container>
   );
