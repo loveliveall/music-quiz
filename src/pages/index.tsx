@@ -1,13 +1,12 @@
 import React from 'react';
 import {
-  FormControl,
-  FormLabel,
   Heading,
   Stack,
-  Switch,
   Text,
   VStack,
 } from '@chakra-ui/react';
+
+import LabeledSwitch from '@/components/LabeledSwitch';
 
 import { useConfigContext } from '@/ConfigContext';
 import { MUSE_SONGS } from '@/songlist';
@@ -26,21 +25,17 @@ function Home() {
       </VStack>
       <Heading size="md">게임 설정</Heading>
       <Heading size="sm">출제 범위</Heading>
-      <FormControl display="flex" alignItems="center" w="auto">
-        <FormLabel htmlFor="lovelive" mb={0}>
-          {`러브라이브 (${MUSE_SONGS.length}곡)`}
-        </FormLabel>
-        <Switch
-          id="lovelive"
-          isChecked={config.ll}
-          onChange={() => {
-            setConfig({
-              ...config,
-              ll: !config.ll,
-            });
-          }}
-        />
-      </FormControl>
+      <LabeledSwitch
+        id="lovelive"
+        label={`러브라이브 (${MUSE_SONGS.length}곡)`}
+        isChecked={config.ll}
+        onChange={() => {
+          setConfig({
+            ...config,
+            ll: !config.ll,
+          });
+        }}
+      />
     </VStack>
   );
 }

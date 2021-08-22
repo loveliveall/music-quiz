@@ -4,10 +4,9 @@ import {
   useColorMode,
   Center,
   Container,
-  FormControl,
-  FormLabel,
-  Switch as CUISwitch,
 } from '@chakra-ui/react';
+
+import LabeledSwitch from '@/components/LabeledSwitch';
 
 import { RoutePath } from '@/routes';
 import Home from '@/pages/index';
@@ -20,14 +19,12 @@ function App() {
         <Route path={RoutePath.home} component={Home} />
       </Switch>
       <Center py={6}>
-        <FormControl display="flex" alignItems="center" w="auto">
-          <FormLabel htmlFor="toggle-color-mode" mb={0}>다크 모드</FormLabel>
-          <CUISwitch
-            id="toggle-color-mode"
-            isChecked={colorMode === 'dark'}
-            onChange={toggleColorMode}
-          />
-        </FormControl>
+        <LabeledSwitch
+          id="toggle-color-mode"
+          label="다크 모드"
+          isChecked={colorMode === 'dark'}
+          onChange={toggleColorMode}
+        />
       </Center>
     </Container>
   );
