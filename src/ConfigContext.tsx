@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Config = {
+export type Config = {
   ll: boolean,
   lls: boolean,
   niji: boolean,

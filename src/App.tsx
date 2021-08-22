@@ -10,13 +10,15 @@ import LabeledSwitch from '@/components/LabeledSwitch';
 
 import { RoutePath } from '@/routes';
 import Home from '@/pages/index';
+import Game from '@/pages/game';
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Container maxW="container.lg" pt={4}>
       <Switch>
-        <Route path={RoutePath.home} component={Home} />
+        <Route exact path={RoutePath.home} component={Home} />
+        <Route path={RoutePath.game} component={Game} />
       </Switch>
       <Center py={6}>
         <LabeledSwitch
