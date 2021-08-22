@@ -9,7 +9,7 @@ import {
 import LabeledSwitch from '@/components/LabeledSwitch';
 
 import { useConfigContext } from '@/ConfigContext';
-import { MUSE_SONGS } from '@/songlist';
+import { LOVELIVE_SONGS } from '@/songlist';
 
 function Home() {
   const { config, setConfig } = useConfigContext();
@@ -27,7 +27,7 @@ function Home() {
       <Heading size="sm">출제 범위</Heading>
       <LabeledSwitch
         id="lovelive"
-        label={`러브라이브 (${MUSE_SONGS.length}곡)`}
+        label={`러브라이브 (${LOVELIVE_SONGS.length}곡)`}
         isChecked={config.ll}
         onChange={() => {
           setConfig({

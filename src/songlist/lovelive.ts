@@ -1,6 +1,6 @@
 import { SongEntry } from './types';
 
-export const MUSE_SONGS: SongEntry[] = [
+export const LOVELIVE_SONGS: SongEntry[] = [
   {
     id: 'M0001',
     jpName: '僕らのLIVE 君とのLIFE',
