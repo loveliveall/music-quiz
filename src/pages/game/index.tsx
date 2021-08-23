@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button,
   ButtonGroup,
@@ -10,6 +11,7 @@ import {
 import SearchableSelect from '@/components/SearchableSelect';
 
 import { useConfigContext, Config } from '@/ConfigContext';
+import { RoutePath } from '@/routes';
 import { choice } from '@/utils';
 import {
   LOVELIVE_SONGS,
@@ -48,6 +50,7 @@ type GameState = {
 };
 
 function Game() {
+  const history = useHistory();
   const { config } = useConfigContext();
   const songlist = getSongList(config);
   const [locale, setLocale] = React.useState<'jp' | 'kr'>('jp');
@@ -75,10 +78,40 @@ function Game() {
     qNo, answer, problemPos, judgeResult,
   } = gameState;
 
+  const onSubmission = () => {
+    if (selectedSongId === answer.id) {
+      // Correct
+      setGameState({
+        ...gameState,
+        judgeResult: true,
+      });
+    } else {
+      setGameState({
+        ...gameState,
+        wrongCount: gameState.wrongCount + 1,
+        judgeResult: false,
+      });
+    }
+  };
+
+  const onNextClick = () => {
+    if (judgeResult === null) return; // Cannot happen
+    const newQNo = judgeResult ? qNo + 1 : qNo;
+    // Set state for next game
+    setGameState({
+      qNo: newQNo,
+      answer: choice(songlist)!,
+      problemPos: choice(PROBLEM_POS_DOMAIN)!,
+      wrongCount: gameState.wrongCount,
+      judgeResult: null,
+    });
+  };
+
   return (
     <VStack spacing={4}>
       <Heading>{`문제 ${qNo}`}</Heading>
       <Text>{`문제 길이: ${getProblemDuration(qNo)}초`}</Text>
+      {/* Show problem config */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
         src={`./${answer.id}-${problemPos}-${getProblemDuration(qNo)}.mp3`}
@@ -87,27 +120,35 @@ function Game() {
         HTML audio tag is not supported
       </audio>
       {judgeResult === null && (
-        <SearchableSelect
-          itemList={songlist.map((e) => ({
-            key: e.id,
-            label: e.name[locale],
-            subLabel: `by ${e.artist}`,
-            searchKeywords: [e.name.jp, e.name.kr, ...e.alias],
-          }))}
-          selectedItemKey={selectedSongId}
-          setSelectedItemKey={setSelectedSongId}
-        />
-        // TODO: Button for submission & reset to home
+        <>
+          <SearchableSelect
+            itemList={songlist.map((e) => ({
+              key: e.id,
+              label: e.name[locale],
+              subLabel: `by ${e.artist}`,
+              searchKeywords: [e.name.jp, e.name.kr, ...e.alias],
+            }))}
+            selectedItemKey={selectedSongId}
+            setSelectedItemKey={setSelectedSongId}
+          />
+          <Button onClick={onSubmission}>제출</Button>
+          <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
+        </>
       )}
       {judgeResult !== null && (
         <>
           <Text>
-            {judgeResult ? '정답입니다 ٩(๑＞◡＜๑)۶' : '틀렸습니다 ｡°(´∩ω∩`)°｡'}
+            {judgeResult ? '정답입니다 ٩(๑＞◡＜๑)۶' : `틀렸습니다 ｡°(´∩ω∩\`)°｡ (틀린 횟수: ${gameState.wrongCount})`}
           </Text>
           {!judgeResult && (
             <Text>{`정답은 ${answer.name[locale]} 입니다 (*ﾟДﾟ)`}</Text>
           )}
-          {/* TODO: Button for next problem / reset to home */}
+          {config.life === 'inf' || gameState.wrongCount < config.life ? (
+            <Button onClick={onNextClick}>다음 문제</Button>
+          ) : (
+            <Text>게임이 종료되었습니다</Text>
+          )}
+          <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
         </>
       )}
       <VStack>
