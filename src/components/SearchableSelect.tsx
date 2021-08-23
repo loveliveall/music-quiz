@@ -13,6 +13,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
+  HStack,
 } from '@chakra-ui/react';
 import {
   BiChevronDown,
@@ -27,6 +28,7 @@ const normalizeString = (str: string) => str.replace(/\s/g, '').toLowerCase();
 type Item = {
   key: string,
   label: string,
+  subLabel: string,
   searchKeywords: string[],
 };
 
@@ -40,6 +42,7 @@ function SearchableSelect({
   itemList, selectedItemKey, setSelectedItemKey,
 }: SearchableSelectProps) {
   const hoverItemColor = useColorModeValue('gray.200', 'gray.600');
+  const subLabelColor = useColorModeValue('gray.500', 'gray.500');
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [input, setInput] = React.useState('');
   const [highlightedIdx, setHighlightedIdx] = React.useState(0);
@@ -158,7 +161,10 @@ function SearchableSelect({
                   onMouseMove={onItemHover(idx)}
                   onClick={() => onItemSelect(idx)}
                 >
-                  <Text>{item.label}</Text>
+                  <HStack>
+                    <Text>{item.label}</Text>
+                    <Text fontSize="xs" textColor={subLabelColor}>{item.subLabel}</Text>
+                  </HStack>
                 </ListItem>
               );
             })}

@@ -91,6 +91,7 @@ function Game() {
           itemList={songlist.map((e) => ({
             key: e.id,
             label: e.name[locale],
+            subLabel: `by ${e.artist}`,
             searchKeywords: [e.name.jp, e.name.kr, ...e.alias],
           }))}
           selectedItemKey={selectedSongId}
