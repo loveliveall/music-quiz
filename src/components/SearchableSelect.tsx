@@ -22,9 +22,12 @@ import {
 
 import { mod } from '@/utils';
 
+const normalizeString = (str: string) => str.replace(/\s/g, '').toLowerCase();
+
 type Item = {
   key: string,
   label: string,
+  searchKeywords: string[],
 };
 
 type SearchableSelectProps = {
@@ -41,7 +44,14 @@ function SearchableSelect({
   const [input, setInput] = React.useState('');
   const [highlightedIdx, setHighlightedIdx] = React.useState(0);
 
-  const searchedItemList = itemList; // TODO: Add search logic
+  const normalizedInput = normalizeString(input);
+  const searchedItemList = input === ''
+    ? itemList
+    : itemList.filter((item) => {
+      return item.searchKeywords.some((keyword) => {
+        return normalizeString(keyword).indexOf(normalizedInput) > -1;
+      })
+    });
   const inputRef = React.useRef<HTMLInputElement>(null);
   const ulRef = React.useRef<HTMLUListElement>(null);
   const liRefs = itemList.reduce((acc, _, idx) => {

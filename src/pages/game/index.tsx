@@ -88,7 +88,11 @@ function Game() {
       </audio>
       {judgeResult === null && (
         <SearchableSelect
-          itemList={songlist.map((e) => ({ key: e.id, label: e.name[locale] }))}
+          itemList={songlist.map((e) => ({
+            key: e.id,
+            label: e.name[locale],
+            searchKeywords: [e.name.jp, e.name.kr, ...e.alias],
+          }))}
           selectedItemKey={selectedSongId}
           setSelectedItemKey={setSelectedSongId}
         />
