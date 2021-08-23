@@ -7,6 +7,8 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
+import SearchableSelect from '@/components/SearchableSelect';
+
 import { useConfigContext, Config } from '@/ConfigContext';
 import { choice } from '@/utils';
 import {
@@ -47,13 +49,14 @@ type GameState = {
 
 function Game() {
   const { config } = useConfigContext();
+  const songlist = getSongList(config);
   const [locale, setLocale] = React.useState<'jp' | 'kr'>('jp');
+  const [selectedSongId, setSelectedSongId] = React.useState(songlist[0]!.id);
   const [gameState, setGameState] = React.useState<GameState | null>(null);
 
   React.useEffect(() => {
     if (gameState === null) {
       // Initialize game
-      const songlist = getSongList(config);
       setGameState({
         qNo: 1,
         answer: choice(songlist)!, // At least one song exists in songlist
@@ -84,7 +87,11 @@ function Game() {
         HTML audio tag is not supported
       </audio>
       {judgeResult === null && (
-        <Text>Music selecter will be here</Text>
+        <SearchableSelect
+          itemList={songlist.map((e) => ({ key: e.id, label: e.name[locale] }))}
+          selectedItemKey={selectedSongId}
+          setSelectedItemKey={setSelectedSongId}
+        />
         // TODO: Button for submission & reset to home
       )}
       {judgeResult !== null && (
