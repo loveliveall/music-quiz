@@ -1,5 +1,6 @@
 import { SongEntry } from './types';
 
+// Aliases from: https://xn--hckp3ac2l023wu2ve.com/live-music-ryakushou-matome.html
 export const LOVELIVE_SONGS: SongEntry[] = [
   {
     id: 'M0001',
@@ -42,5 +43,110 @@ export const LOVELIVE_SONGS: SongEntry[] = [
     artist: 'Printemps',
     year: 2011,
     alias: ['스윗&스윗 홀리데이', '스윗스윗 홀리데이', '스스홀', 'ssh'],
+  },
+  {
+    id: 'M0007',
+    name: { jp: 'ダイヤモンドプリンセスの憂鬱', kr: '다이아몬드 프린세스의 우울' },
+    artist: 'BiBi',
+    year: 2011,
+    alias: ['다이프리'],
+  },
+  {
+    id: 'M0008',
+    name: { jp: 'ラブノベルス', kr: '러브 노벨즈' },
+    artist: 'BiBi',
+    year: 2011,
+    alias: ['러브노베', '라부노베'],
+  },
+  {
+    id: 'M0009',
+    name: { jp: '知らないLove*教えてLove', kr: '모르겠어 Love*가르쳐줘 Love' },
+    artist: 'lily white',
+    year: 2011,
+    alias: ['시라나이 Love 오시에떼 Love', '시라라라'],
+  },
+  {
+    id: 'M0010',
+    name: { jp: 'あ・の・ね・が・ん・ば・れ！', kr: '있・잖・아・힘・을・내!' },
+    artist: 'lily white',
+    year: 2011,
+    alias: ['아노네 간바레', '아노네'],
+  },
+  {
+    id: 'M0011',
+    name: { jp: '夏色えがおで1,2,Jump!', kr: '여름빛 미소로 1,2,Jump!' },
+    artist: 'μ\'s',
+    year: 2011,
+    alias: ['나츠이로 에가오데 원투점프!', '나츠이로'],
+  },
+  {
+    id: 'M0012',
+    name: { jp: 'Mermaid festa vol.1', kr: 'Mermaid festa vol.1' },
+    artist: 'μ\'s',
+    year: 2011,
+    alias: ['머메이드 페스타 볼륨 1', '머메페스1', '마메페스1'],
+  },
+  {
+    id: 'M0013',
+    name: { jp: '私たちは未来の花', kr: '우리들은 미래의 꽃' },
+    artist: '소노다 우미',
+    year: 2011,
+    alias: ['와타시타치와 미라이노 하나', '우미꽃', '와타하나'],
+  },
+  {
+    id: 'M0014',
+    name: { jp: 'スピカテリブル', kr: '스피카 테러블' },
+    artist: '미나미 코토리',
+    year: 2011,
+    alias: ['스피카'],
+  },
+  {
+    id: 'M0015',
+    name: { jp: '愛は太陽じゃない？', kr: '사랑은 태양이 아닐까?' },
+    artist: '코사카 호노카',
+    year: 2012,
+    alias: ['아이와 타이요오쟈 나이?', '아이타이'],
+  },
+  {
+    id: 'M0016',
+    name: { jp: 'もうひとりじゃないよ', kr: '더 이상 혼자가 아니야' },
+    artist: '코사카 호노카',
+    year: 2012,
+    alias: ['모오 히토리쟈 나이요'],
+  },
+  {
+    id: 'M0017',
+    name: { jp: 'もぎゅっと“love”で接近中！', kr: '꼬옥 "love"로 접근 중!' },
+    artist: 'μ\'s',
+    year: 2012,
+    alias: ['모규', '모귯또', '러브개새끼'],
+  },
+  {
+    id: 'M0018',
+    name: { jp: '愛してるばんざーい！', kr: '사랑해 만세!' },
+    artist: 'μ\'s',
+    year: 2012,
+    alias: ['아이시떼루 반자이!', '반자이', '아이반', '아이반자'],
+  },
+  {
+    id: 'M0019',
+    name: { jp: 'Mermaid festa vol.2 ~Passionate~', kr: 'Mermaid festa vol.2 ~Passionate~' },
+    artist: '코사카 호노카, 호시조라 린',
+    year: 2012,
+    alias: ['머메이드 페스타 볼륨 2', '머메페스2', '마메페스2'],
+  },
+  {
+    id: 'M0020',
+    name: { jp: 'Someday of my life', kr: 'Someday of my life' },
+    artist: '코사카 호노카',
+    year: 2012,
+    alias: ['사무라이', '섬라이'],
+  },
+  {
+    id: 'M0021',
+    name: { jp: '恋のシグナルRin rin rin!', kr: '사랑의 시그널 Rin rin rin!' },
+    artist: '호시조라 린',
+    year: 2012,
+    alias: ['린가베'],
   },
 ];

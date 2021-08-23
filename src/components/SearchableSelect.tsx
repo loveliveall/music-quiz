@@ -13,7 +13,6 @@ import {
   PopoverContent,
   PopoverTrigger,
   Text,
-  HStack,
 } from '@chakra-ui/react';
 import {
   BiChevronDown,
@@ -147,7 +146,7 @@ function SearchableSelect({
             ref={ulRef}
             maxH="40vh"
             mt={2}
-            // overflowY="auto"
+            overflowY="auto"
           >
             {searchedItemList.map((item, idx) => {
               return (
@@ -161,10 +160,8 @@ function SearchableSelect({
                   onMouseMove={onItemHover(idx)}
                   onClick={() => onItemSelect(idx)}
                 >
-                  <HStack>
-                    <Text>{item.label}</Text>
-                    <Text fontSize="xs" textColor={subLabelColor}>{item.subLabel}</Text>
-                  </HStack>
+                  <Text>{item.label}</Text>
+                  <Text fontSize="xs" textColor={subLabelColor}>{item.subLabel}</Text>
                 </ListItem>
               );
             })}
