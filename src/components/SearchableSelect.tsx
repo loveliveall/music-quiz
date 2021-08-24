@@ -52,14 +52,14 @@ function SearchableSelect({
     : itemList.filter((item) => {
       return item.searchKeywords.some((keyword) => {
         return normalizeString(keyword).indexOf(normalizedInput) > -1;
-      })
+      });
     });
   const inputRef = React.useRef<HTMLInputElement>(null);
   const ulRef = React.useRef<HTMLUListElement>(null);
   const liRefs = itemList.reduce((acc, _, idx) => {
     acc[idx] = React.createRef<HTMLLIElement>();
     return acc;
-  }, {} as { [key: number]: React.RefObject<HTMLLIElement> });
+  }, {} as { [key: number]: React.RefObject<HTMLLIElement>, });
 
   const updateHighlightedIdx = (idx: number) => {
     setHighlightedIdx(idx);
@@ -99,7 +99,10 @@ function SearchableSelect({
   const onInputKeyDown: InputProps['onKeyDown'] = (ev) => {
     if (ev.code === 'ArrowUp' || ev.code === 'ArrowDown') {
       ev.preventDefault(); // Do not move cursor on arrow up/down
-      const newHighlight = mod(ev.code === 'ArrowUp' ? highlightedIdx - 1 : highlightedIdx + 1, searchedItemList.length);
+      const newHighlight = mod(
+        ev.code === 'ArrowUp' ? highlightedIdx - 1 : highlightedIdx + 1,
+        searchedItemList.length,
+      );
       updateHighlightedIdx(newHighlight);
     }
     if (ev.code === 'Enter') {
