@@ -160,8 +160,8 @@ function SearchableSelect({
                   onMouseMove={onItemHover(idx)}
                   onClick={() => onItemSelect(idx)}
                 >
-                  <Text>{item.label}</Text>
-                  <Text fontSize="xs" textColor={subLabelColor}>{item.subLabel}</Text>
+                  <Text noOfLines={1}>{item.label}</Text>
+                  <Text noOfLines={1} fontSize="xs" textColor={subLabelColor}>{item.subLabel}</Text>
                 </ListItem>
               );
             })}
