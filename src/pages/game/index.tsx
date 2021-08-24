@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { sha256 } from 'js-sha256';
 import {
   useColorModeValue,
   Button,
@@ -43,6 +44,13 @@ function getProblemLevel(qNo: number): ProblemLevel {
   if (qNo <= 20) return { lvl: 4, duration: 1 };
   if (qNo <= 25) return { lvl: 5, duration: 0.75 };
   return { lvl: 6, duration: 0.5 };
+}
+
+function genAudioPath(qNo: number, answerId: string, problemPos: number): string {
+  const { lvl } = getProblemLevel(qNo);
+  const filename = sha256(`${answerId}-${problemPos}-${lvl}`);
+  const lvlStr = `0${lvl}`.slice(-2);
+  return `./audio/level${lvlStr}/${filename}.mp3`;
 }
 
 function SubText({ children }: React.PropsWithChildren<{}>) {
@@ -139,7 +147,7 @@ function Game() {
       <Text>{`문제 길이: ${duration}초`}</Text>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
-        src={`./${answer.id}-${problemPos}-${duration}.mp3`}
+        src={genAudioPath(qNo, answer.id, problemPos)}
         controls
       >
         HTML audio tag is not supported
