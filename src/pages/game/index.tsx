@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import {
+  useColorModeValue,
   Button,
   ButtonGroup,
   Heading,
@@ -44,6 +45,13 @@ function getProblemLevel(qNo: number): ProblemLevel {
   return { lvl: 6, duration: 0.5 };
 }
 
+function SubText({ children }: React.PropsWithChildren<{}>) {
+  const subLabelColor = useColorModeValue('gray.500', 'gray.500');
+  return (
+    <Text fontSize="xs" textColor={subLabelColor}>{children}</Text>
+  );
+}
+
 const PROBLEM_POS_DOMAIN = [5, 14, 23, 32, 41, 50, 59, 68, 77, 86, 95, 104, 113, 122, 131, 140, 149, 158, 167, 176];
 type GameState = {
   qNo: number,
@@ -80,7 +88,7 @@ function Game() {
   }
 
   const {
-    qNo, answer, problemPos, judgeResult,
+    qNo, answer, problemPos, judgeResult, wrongCount,
   } = gameState;
   const { duration } = getProblemLevel(qNo);
 
@@ -117,8 +125,18 @@ function Game() {
   return (
     <VStack spacing={4}>
       <Heading>{`문제 ${qNo}`}</Heading>
+      <VStack spacing={0}>
+        {config.life === 'inf' && <SubText>게임 모드: 연습모드</SubText>}
+        {config.life === 1 && <SubText>게임 모드: 서든데스</SubText>}
+        {config.life === 3 && <SubText>{`게임 모드: 일반게임 (틀린 횟수 ${wrongCount}/3)`}</SubText>}
+        {config.hint ? <SubText>힌트 있음</SubText> : <SubText>힌트 없음</SubText>}
+        <SubText>{`출제 범위 총 ${songlist.length}곡`}</SubText>
+        {config.ll && <SubText>러브라이브</SubText>}
+        {config.lls && <SubText>러브라이브 선샤인</SubText>}
+        {config.niji && <SubText>러브라이브 니지동</SubText>}
+        {config.llss && <SubText>러브라이브 슈퍼스타</SubText>}
+      </VStack>
       <Text>{`문제 길이: ${duration}초`}</Text>
-      {/* Show problem config */}
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
         src={`./${answer.id}-${problemPos}-${duration}.mp3`}
