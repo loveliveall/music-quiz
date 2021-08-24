@@ -128,6 +128,7 @@ function Game() {
       judgeResult: null,
     });
     setOpenHint(false);
+    setSelectedSongId(songlist[0]!.id);
   };
 
   return (
