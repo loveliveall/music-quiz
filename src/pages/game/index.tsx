@@ -133,6 +133,7 @@ function Game() {
 
   return (
     <VStack spacing={4}>
+      <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
       <Heading>{`문제 ${qNo}`}</Heading>
       <VStack spacing={0}>
         {config.life === 'inf' && <SubText>게임 모드: 연습모드</SubText>}
@@ -172,7 +173,6 @@ function Game() {
             setSelectedItemKey={setSelectedSongId}
           />
           <Button onClick={onSubmission} colorScheme="green">제출</Button>
-          <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
         </>
       )}
       {judgeResult !== null && (
@@ -188,7 +188,6 @@ function Game() {
           ) : (
             <Text>게임이 종료되었습니다</Text>
           )}
-          <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
         </>
       )}
       <VStack>
