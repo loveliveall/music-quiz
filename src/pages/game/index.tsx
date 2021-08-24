@@ -60,6 +60,7 @@ function Game() {
   const [locale, setLocale] = React.useState<'jp' | 'kr'>('jp');
   const [selectedSongId, setSelectedSongId] = React.useState(songlist[0]!.id);
   const [gameState, setGameState] = React.useState<GameState | null>(null);
+  const [openHint, setOpenHint] = React.useState(false);
 
   React.useEffect(() => {
     if (gameState === null) {
@@ -110,6 +111,7 @@ function Game() {
       wrongCount: gameState.wrongCount,
       judgeResult: null,
     });
+    setOpenHint(false);
   };
 
   return (
@@ -126,6 +128,12 @@ function Game() {
       </audio>
       {judgeResult === null && (
         <>
+          {config.hint && (
+            <>
+              {!openHint && <Button size="sm" onClick={() => setOpenHint(true)}>힌트 보기</Button>}
+              {openHint && <Text>{`힌트: ${answer.year}년 발매`}</Text>}
+            </>
+          )}
           <SearchableSelect
             itemList={songlist.map((e) => ({
               key: e.id,
@@ -136,7 +144,7 @@ function Game() {
             selectedItemKey={selectedSongId}
             setSelectedItemKey={setSelectedSongId}
           />
-          <Button onClick={onSubmission}>제출</Button>
+          <Button onClick={onSubmission} colorScheme="green">제출</Button>
           <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
         </>
       )}
