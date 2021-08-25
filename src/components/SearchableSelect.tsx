@@ -45,6 +45,7 @@ function SearchableSelect({
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [input, setInput] = React.useState('');
   const [highlightedIdx, setHighlightedIdx] = React.useState(0);
+  const [isComposing, setIsComposing] = React.useState(false);
 
   const normalizedInput = normalizeString(input);
   const searchedItemList = input === ''
@@ -97,6 +98,7 @@ function SearchableSelect({
 
   const onInputKeyDown: InputProps['onKeyDown'] = (ev) => {
     if (ev.code === 'ArrowUp' || ev.code === 'ArrowDown') {
+      if (isComposing) return;
       ev.preventDefault(); // Do not move cursor on arrow up/down
       const newHighlight = mod(
         ev.code === 'ArrowUp' ? highlightedIdx - 1 : highlightedIdx + 1,
@@ -105,9 +107,12 @@ function SearchableSelect({
       updateHighlightedIdx(newHighlight);
     }
     if (ev.code === 'Enter') {
+      if (isComposing) return;
       onItemSelect(highlightedIdx);
     }
   };
+  const onInputCompositionStart: InputProps['onCompositionStart'] = () => setIsComposing(true);
+  const onInputCompositionEnd: InputProps['onCompositionEnd'] = () => setIsComposing(false);
   const onItemHover = (idx: number): ListItemProps['onMouseMove'] => () => {
     if (idx !== highlightedIdx) {
       updateHighlightedIdx(idx);
@@ -143,6 +148,8 @@ function SearchableSelect({
               onChange={(e) => setInput(e.target.value)}
               placeholder="곡명 혹은 약칭 검색"
               onKeyDown={onInputKeyDown}
+              onCompositionStart={onInputCompositionStart}
+              onCompositionEnd={onInputCompositionEnd}
             />
           </InputGroup>
           <List
