@@ -1,5 +1,6 @@
 import { SongEntry } from './types';
 
+// Aliases from: https://xn--hckp3ac2l023wu2ve.com/live-music-ryakushou-matome.html
 export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
   {
     id: 'A0001',
