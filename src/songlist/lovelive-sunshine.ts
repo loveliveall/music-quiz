@@ -70,7 +70,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'ときめき分類学', kr: '두근거림 분류학' },
     artist: 'AZALEA',
     year: 2016,
-    alias: ['토키메키'],
+    alias: ['토키메키', '도키메키'],
   },
   {
     id: 'A0011',
