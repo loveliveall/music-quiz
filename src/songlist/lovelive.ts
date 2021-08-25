@@ -686,7 +686,7 @@ export const LOVELIVE_SONGS: SongEntry[] = [
     name: { jp: '僕たちはひとつの光', kr: '우리는 하나의 빛' },
     artist: 'μ’s',
     year: 2015,
-    alias: ['우리들은 하나의 빛', '눈물벨', 'ZAQ갓'],
+    alias: ['우리들은 하나의 빛', '보쿠타치와 히토츠노 히카리', '보쿠히카', '눈물벨', 'ZAQ갓'],
   },
   {
     id: 'M0099',
