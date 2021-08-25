@@ -157,6 +157,13 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     alias: ['미래 티켓', '미라치케'],
   },
   {
+    id: 'A0138',
+    name: { jp: 'SELF CONTROL!!', kr: 'SELF CONTROL!!' },
+    artist: 'Saint Snow',
+    year: 2016,
+    alias: ['셀프 컨트롤!!', '셀컨'],
+  },
+  {
     id: 'A0023',
     name: { jp: 'Pops heartで踊るんだもん！', kr: 'Pops heart로 춤추는걸!' },
     artist: 'Aqours',
