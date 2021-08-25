@@ -9,3 +9,9 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     alias: ['키미코코'],
   },
 ];
+
+// LOVELIVE_SUNSHINE_SONGS.forEach((song, idx) => {
+//   if (LOVELIVE_SUNSHINE_SONGS.slice(idx + 1).findIndex((e) => e.id === song.id) > -1) {
+//     throw Error(`Duplicate ID: ${song.id}`);
+//   }
+// });

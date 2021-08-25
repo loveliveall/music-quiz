@@ -9,3 +9,9 @@ export const LOVELIVE_SUPERSTAR_SONGS: SongEntry[] = [
     alias: ['하지마리와 키미노 소라', '하지소라', '키미소라'],
   },
 ];
+
+// LOVELIVE_SUPERSTAR_SONGS.forEach((song, idx) => {
+//   if (LOVELIVE_SUPERSTAR_SONGS.slice(idx + 1).findIndex((e) => e.id === song.id) > -1) {
+//     throw Error(`Duplicate ID: ${song.id}`);
+//   }
+// });

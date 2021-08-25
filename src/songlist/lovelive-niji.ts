@@ -9,3 +9,9 @@ export const LOVELIVE_NIJI_SONGS: SongEntry[] = [
     alias: ['토키메키 러너즈', '토키런', '토키란'],
   },
 ];
+
+// LOVELIVE_NIJI_SONGS.forEach((song, idx) => {
+//   if (LOVELIVE_NIJI_SONGS.slice(idx + 1).findIndex((e) => e.id === song.id) > -1) {
+//     throw Error(`Duplicate ID: ${song.id}`);
+//   }
+// });

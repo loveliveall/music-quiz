@@ -539,7 +539,7 @@ export const LOVELIVE_SONGS: SongEntry[] = [
     name: { jp: 'Storm in Lover', kr: 'Storm in Lover' },
     artist: '아야세 에리, 소노다 우미',
     year: 2014,
-    alias: ['스톰 인 러버', '쿠루미라', '스토라바', '머메3'],
+    alias: ['스톰 인 러버', '스토라바', '머메3'],
   },
   {
     id: 'M0078',
@@ -623,7 +623,7 @@ export const LOVELIVE_SONGS: SongEntry[] = [
     name: { jp: 'ふたりハピネス', kr: '두 사람 해피니스' },
     artist: 'lily white',
     year: 2014,
-    alias: ['후타리 하피네스'],
+    alias: ['후타리 하피네스', '후타리 해피니스'],
   },
   {
     id: 'M0090',
