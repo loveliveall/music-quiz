@@ -186,7 +186,10 @@ function Game() {
           {config.life === 'inf' || gameState.wrongCount < config.life ? (
             <Button onClick={onNextClick}>다음 문제</Button>
           ) : (
-            <Text>게임이 종료되었습니다</Text>
+            <>
+              <Text>게임이 종료되었습니다</Text>
+              <Text>{`맞힌 문제: ${qNo - 1}개, 틀린 문제: ${wrongCount}개`}</Text>
+            </>
           )}
         </>
       )}
