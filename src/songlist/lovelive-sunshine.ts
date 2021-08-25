@@ -707,7 +707,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'Amazing Travel DNA', kr: 'Amazing Travel DNA' },
     artist: 'AZALEA',
     year: 2019,
-    alias: [],
+    alias: ['ATD'],
   },
   {
     id: 'A0101',
