@@ -50,7 +50,7 @@ function genAudioPath(qNo: number, answerId: string, problemPos: number): string
   const { lvl } = getProblemLevel(qNo);
   const filename = sha256(`${answerId}-${problemPos}-${lvl}`);
   const lvlStr = `0${lvl}`.slice(-2);
-  return `./audio/level${lvlStr}/${filename}.mp3`;
+  return `https://rinachan-box.s3-us-west-2.amazonaws.com/music-quiz/audio/level${lvlStr}/${filename}.mp3`;
 }
 
 function SubText({ children }: React.PropsWithChildren<{}>) {
