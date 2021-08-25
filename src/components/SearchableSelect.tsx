@@ -56,7 +56,7 @@ function SearchableSelect({
     });
   const inputRef = React.useRef<HTMLInputElement>(null);
   const ulRef = React.useRef<HTMLUListElement>(null);
-  const liRefs = itemList.reduce((acc, _, idx) => {
+  const liRefs = searchedItemList.reduce((acc, _, idx) => {
     acc[idx] = React.createRef<HTMLLIElement>();
     return acc;
   }, {} as { [key: number]: React.RefObject<HTMLLIElement>, });
@@ -88,8 +88,8 @@ function SearchableSelect({
   };
 
   React.useEffect(() => {
+    const selectedIdx = itemList.findIndex((e) => e.key === selectedItemKey);
     setInput('');
-    const selectedIdx = searchedItemList.findIndex((e) => e.key === selectedItemKey);
     updateHighlightedIdx(Math.max(selectedIdx, 0));
   }, [isOpen]);
   React.useEffect(() => {
