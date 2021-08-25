@@ -82,15 +82,14 @@ function SearchableSelect({
   const onItemSelect = (idx: number) => {
     const item = searchedItemList[idx];
     if (item === undefined) return;
-    setInput(''); // Empty input on select
     setSelectedItemKey(item.key);
     onClose();
   };
 
   React.useEffect(() => {
-    const selectedIdx = itemList.findIndex((e) => e.key === selectedItemKey);
-    setInput('');
-    updateHighlightedIdx(Math.max(selectedIdx, 0));
+    if (isOpen) {
+      setInput('');
+    }
   }, [isOpen]);
   React.useEffect(() => {
     updateHighlightedIdx(0);
@@ -121,6 +120,7 @@ function SearchableSelect({
       isOpen={isOpen}
       onClose={onClose}
       initialFocusRef={inputRef}
+      returnFocusOnClose={false}
     >
       <PopoverTrigger>
         <Button
