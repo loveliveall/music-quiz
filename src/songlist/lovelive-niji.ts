@@ -256,7 +256,7 @@ export const LOVELIVE_NIJI_SONGS: SongEntry[] = [
   {
     id: 'N0037',
     name: { jp: 'アナログハート', kr: '아날로그 하트' },
-    artist: '엠마 베르데',
+    artist: '텐노지 리나',
     year: 2020,
     alias: [],
   },
