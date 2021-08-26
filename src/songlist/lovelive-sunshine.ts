@@ -968,6 +968,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     year: 2021,
     alias: [],
   },
+  // A0138 moved to after A0022 for ordering
 ];
 
 // LOVELIVE_SUNSHINE_SONGS.forEach((song, idx) => {
