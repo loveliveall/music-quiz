@@ -41,7 +41,7 @@ export const LOVELIVE_NIJI_SONGS: SongEntry[] = [
     name: { jp: 'めっちゃGoing!!', kr: '엄청 Going!!' },
     artist: '미야시타 아이',
     year: 2018,
-    alias: ['멧챠 고잉!!', '엄청 고잉!!', '존나 고잉!!'],
+    alias: ['멧챠 고잉!!', '메챠 고잉!!', '엄청 고잉!!', '존나 고잉!!'],
   },
   {
     id: 'N0007',
