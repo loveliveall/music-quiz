@@ -54,7 +54,7 @@ function Home() {
             서든데스
           </Button>
         </Tooltip>
-        <Tooltip hasArrow label="3번까지는 틀려도 괜찮습니다">
+        <Tooltip hasArrow label="3번 틀리면 게임이 종료됩니다">
           <Button
             isActive={config.life === 3}
             onClick={() => setConfig({ ...config, life: 3 })}
