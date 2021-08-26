@@ -5,7 +5,9 @@ import {
   useColorModeValue,
   Button,
   ButtonGroup,
+  Center,
   Heading,
+  Spinner,
   Text,
   VStack,
 } from '@chakra-ui/react';
@@ -92,7 +94,11 @@ function Game() {
   }, [gameState]);
 
   if (gameState === null) {
-    return <Text>Loading...</Text>;
+    return (
+      <Center>
+        <Spinner />
+      </Center>
+    );
   }
 
   const {
