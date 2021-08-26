@@ -112,7 +112,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'サンシャインぴっかぴか音頭', kr: '선샤인 반짝반짝 선창' },
     artist: 'Aqours',
     year: 2016,
-    alias: ['삐까삐까'],
+    alias: ['삐까삐까', '피카피카'],
   },
   {
     id: 'A0017',
@@ -588,7 +588,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'i-n-g, I TRY!!', kr: 'i-n-g, I TRY!!' },
     artist: 'Aqours',
     year: 2019,
-    alias: ['잉트라이'],
+    alias: ['잉트라이', 'ing I TRY!!'],
   },
   {
     id: 'A0084',
