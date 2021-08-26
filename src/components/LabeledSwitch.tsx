@@ -20,6 +20,7 @@ function LabeledSwitch({
       <FormLabel htmlFor={id} mb={0}>{label}</FormLabel>
       <Switch
         id={id}
+        colorScheme="green"
         isChecked={isChecked}
         onChange={onChange}
       />

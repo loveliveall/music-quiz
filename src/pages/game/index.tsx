@@ -133,7 +133,7 @@ function Game() {
 
   return (
     <VStack spacing={4}>
-      <Button onClick={() => history.push(RoutePath.home)}>홈으로</Button>
+      <Button onClick={() => history.push(RoutePath.home)} colorScheme="green">홈으로</Button>
       <Heading>{`문제 ${qNo}`}</Heading>
       <VStack spacing={0}>
         {config.life === 'inf' && <SubText>게임 모드: 연습모드</SubText>}

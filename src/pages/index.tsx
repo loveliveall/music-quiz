@@ -41,11 +41,11 @@ function Home() {
       </Stack>
       <VStack>
         <Text>주어진 문제 음원을 듣고 곡을 맞춰주세요!</Text>
-        <Text>※ 주의: 브라우저를 종료하면 게임은 초기화 됩니다.</Text>
+        <Text>※ 주의: 브라우저를 종료하거나 새로고침하면 게임이 초기화 됩니다.</Text>
       </VStack>
       <Heading size="md">게임 설정</Heading>
       <Heading size="sm">게임 모드</Heading>
-      <ButtonGroup isAttached variant="outline">
+      <ButtonGroup isAttached variant="outline" colorScheme="green">
         <Tooltip hasArrow label="틀리는 순간 게임이 끝납니다">
           <Button
             isActive={config.life === 1}
@@ -132,7 +132,7 @@ function Home() {
           }}
         />
       </VStack>
-      <Button onClick={onStartClick}>시작!</Button>
+      <Button onClick={onStartClick} colorScheme="green">시작!</Button>
       {errMsg !== '' && (
         <Text color="red">{errMsg}</Text>
       )}
