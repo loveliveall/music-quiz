@@ -251,7 +251,7 @@ export const LOVELIVE_NIJI_SONGS: SongEntry[] = [
     name: { jp: '哀温ノ詩', kr: '애온의 시' },
     artist: '엠마 베르데',
     year: 2020,
-    alias: [],
+    alias: ['애옹의 시'],
   },
   {
     id: 'N0037',
