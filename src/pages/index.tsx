@@ -121,6 +121,17 @@ function Home() {
       <Heading size="sm">기타 설정</Heading>
       <VStack>
         <LabeledSwitch
+          id="easy-mode"
+          label="아주 쉬움 모드로 플레이"
+          isChecked={config.easyMode}
+          onChange={() => {
+            setConfig({
+              ...config,
+              easyMode: !config.easyMode,
+            });
+          }}
+        />
+        <LabeledSwitch
           id="hint"
           label="힌트 제공 여부"
           isChecked={config.hint}
@@ -128,6 +139,17 @@ function Home() {
             setConfig({
               ...config,
               hint: !config.hint,
+            });
+          }}
+        />
+        <LabeledSwitch
+          id="exclude-same-song"
+          label="같은 곡이면서 다른 아티스트인 곡 제거"
+          isChecked={config.excludeSameSong}
+          onChange={() => {
+            setConfig({
+              ...config,
+              excludeSameSong: !config.excludeSameSong,
             });
           }}
         />

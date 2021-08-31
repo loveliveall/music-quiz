@@ -32,7 +32,7 @@ function getSongList(config: Config) {
     config.niji ? LOVELIVE_NIJI_SONGS : [],
   ).concat(
     config.llss ? LOVELIVE_SUPERSTAR_SONGS : [],
-  );
+  ).filter((e) => !config.excludeSameSong || !e.excludable);
 }
 
 type ProblemLevel = {
@@ -53,6 +53,10 @@ function genAudioPath(qNo: number, answerId: string, problemPos: number): string
   const filename = sha256(`${answerId}-${problemPos}-${lvl}`);
   const lvlStr = `0${lvl}`.slice(-2);
   return `https://rinachan-box.s3-us-west-2.amazonaws.com/music-quiz/audio/level${lvlStr}/${filename}.mp3`;
+}
+function genEasyAudioPath(answerId: string): string {
+  const filename = sha256(`${answerId}-30-0`);
+  return `https://rinachan-box.s3-us-west-2.amazonaws.com/music-quiz/audio/level00/${filename}.mp3`;
 }
 
 function SubText({ children }: React.PropsWithChildren<{}>) {
@@ -145,17 +149,19 @@ function Game() {
         {config.life === 'inf' && <SubText>게임 모드: 연습모드</SubText>}
         {config.life === 1 && <SubText>게임 모드: 서든데스</SubText>}
         {config.life === 3 && <SubText>{`게임 모드: 일반게임 (틀린 횟수 ${wrongCount}/3)`}</SubText>}
+        {config.easyMode && <SubText>난이도: 아주 쉬움</SubText>}
         {config.hint ? <SubText>힌트 있음</SubText> : <SubText>힌트 없음</SubText>}
+        {config.excludeSameSong && <SubText>같은 곡이며 다른 아티스트인 곡 제외</SubText>}
         <SubText>{`출제 범위 총 ${songlist.length}곡`}</SubText>
         {config.ll && <SubText>러브라이브</SubText>}
         {config.lls && <SubText>러브라이브 선샤인</SubText>}
         {config.niji && <SubText>러브라이브 니지동</SubText>}
         {config.llss && <SubText>러브라이브 슈퍼스타</SubText>}
       </VStack>
-      <Text>{`문제 길이: ${duration}초`}</Text>
+      <Text>{`문제 길이: ${config.easyMode ? duration : 10}초`}</Text>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
-        src={genAudioPath(qNo, answer.id, problemPos)}
+        src={config.easyMode ? genEasyAudioPath(answer.id) : genAudioPath(qNo, answer.id, problemPos)}
         controls
       >
         HTML audio tag is not supported

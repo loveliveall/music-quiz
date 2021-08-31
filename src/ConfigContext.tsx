@@ -7,6 +7,8 @@ export type Config = {
   llss: boolean,
   life: 'inf' | number,
   hint: boolean,
+  easyMode: boolean,
+  excludeSameSong: boolean, // Exclude same songs with different artist i.e., do not show excludable songs
 };
 
 const initialConfig: Config = {
@@ -16,6 +18,8 @@ const initialConfig: Config = {
   llss: true,
   life: 1,
   hint: false,
+  easyMode: false,
+  excludeSameSong: false,
 };
 
 type ConfigCtx = {
