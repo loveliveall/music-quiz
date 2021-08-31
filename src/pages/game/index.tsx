@@ -158,7 +158,7 @@ function Game() {
         {config.niji && <SubText>러브라이브 니지동</SubText>}
         {config.llss && <SubText>러브라이브 슈퍼스타</SubText>}
       </VStack>
-      <Text>{`문제 길이: ${config.easyMode ? duration : 10}초`}</Text>
+      <Text>{`문제 길이: ${config.easyMode ? 10 : duration}초`}</Text>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
         src={config.easyMode ? genEasyAudioPath(answer.id) : genAudioPath(qNo, answer.id, problemPos)}
@@ -171,7 +171,12 @@ function Game() {
           {config.hint && (
             <>
               {!openHint && <Button size="sm" onClick={() => setOpenHint(true)}>힌트 보기</Button>}
-              {openHint && <Text>{`힌트: ${answer.year}년 발매`}</Text>}
+              {openHint && (
+                <VStack spacing={0}>
+                  <Text>{`힌트: ${answer.year}년 발매`}</Text>
+                  <Text>{`아티스트: ${answer.artist}`}</Text>
+                </VStack>
+              )}
             </>
           )}
           <SearchableSelect
