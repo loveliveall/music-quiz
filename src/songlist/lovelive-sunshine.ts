@@ -392,7 +392,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'Awaken the power', kr: 'Awaken the power' },
     artist: 'Saint Aqours Snow',
     year: 2017,
-    alias: ['어윀파'],
+    alias: ['어윀파', 'ATP'],
   },
   {
     id: 'A0056',
