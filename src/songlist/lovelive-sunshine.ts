@@ -806,6 +806,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     artist: 'Aqours',
     year: 2020,
     alias: ['소라하레'],
+    excludable: true,
   },
   {
     id: 'A0115',

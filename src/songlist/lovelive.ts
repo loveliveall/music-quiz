@@ -316,6 +316,7 @@ export const LOVELIVE_SONGS: SongEntry[] = [
     artist: 'μ’s',
     year: 2013,
     alias: ['스타트 대시!!', '스타트 대쉬!!', '스타다'],
+    excludable: true,
   },
   {
     id: 'M0046',

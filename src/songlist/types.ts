@@ -4,4 +4,5 @@ export type SongEntry = {
   artist: string,
   year: number,
   alias: string[],
+  excludable?: boolean,
 };

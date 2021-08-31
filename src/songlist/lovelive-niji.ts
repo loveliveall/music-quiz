@@ -273,6 +273,7 @@ export const LOVELIVE_NIJI_SONGS: SongEntry[] = [
     artist: '니지가사키 학원 스쿨 아이돌 동호회',
     year: 2020,
     alias: ['토키메키 러너즈', '도키메키 러너즈', '토키런', '토키란', '도키런', '도키란'],
+    excludable: true,
   },
   {
     id: 'N0040',
