@@ -336,7 +336,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: '地元愛♡満タン☆サマーライフ', kr: '고향 사랑♡가득 담은☆서머 라이프' },
     artist: '와타나베 요우, 츠시마 요시코',
     year: 2017,
-    alias: ['지모아이', '유니콘 블리자드'],
+    alias: ['지모아이', '유니콘 블리자드', 'ㄴㅇㄱ'],
   },
   {
     id: 'A0048',
