@@ -112,7 +112,7 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'サンシャインぴっかぴか音頭', kr: '선샤인 반짝반짝 선창' },
     artist: 'Aqours',
     year: 2016,
-    alias: ['삐까삐까', '피카피카', '선샤인 피카피카 온도', '선샤인 삐까삐까 온도'],
+    alias: ['선샤인 피카피카 온도', '선샤인 삐까삐까 온도'],
   },
   {
     id: 'A0017',
