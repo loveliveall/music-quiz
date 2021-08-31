@@ -123,6 +123,7 @@ function Home() {
         <LabeledSwitch
           id="easy-mode"
           label="아주 쉬움 모드로 플레이"
+          tooltip="곡 30초 지점부터 10초가 문제로 주어집니다. 난이도가 고정됩니다."
           isChecked={config.easyMode}
           onChange={() => {
             setConfig({
@@ -134,6 +135,7 @@ function Home() {
         <LabeledSwitch
           id="hint"
           label="힌트 제공 여부"
+          tooltip="곡의 발매 연도와 아티스트 정보를 볼 수 있습니다."
           isChecked={config.hint}
           onChange={() => {
             setConfig({
@@ -145,6 +147,7 @@ function Home() {
         <LabeledSwitch
           id="exclude-same-song"
           label="같은 곡이면서 다른 아티스트인 곡 제거"
+          tooltip="START:DASH!!와 같이 같은 곡이 여러 버전이 있는 경우 하나의 버전만 보여줍니다."
           isChecked={config.excludeSameSong}
           onChange={() => {
             setConfig({

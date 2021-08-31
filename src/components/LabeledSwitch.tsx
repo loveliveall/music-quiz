@@ -3,19 +3,21 @@ import {
   FormControl,
   FormLabel,
   Switch,
+  Tooltip,
 } from '@chakra-ui/react';
 
 type LabeledSwitchProps = {
   id: string,
   label: string,
+  tooltip?: string,
   isChecked?: boolean,
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
 };
 
 function LabeledSwitch({
-  id, label, isChecked, onChange,
+  id, label, tooltip, isChecked, onChange,
 }: LabeledSwitchProps) {
-  return (
+  const Content = (
     <FormControl display="flex" alignItems="center" w="auto">
       <FormLabel htmlFor={id} mb={0}>{label}</FormLabel>
       <Switch
@@ -25,6 +27,12 @@ function LabeledSwitch({
         onChange={onChange}
       />
     </FormControl>
+  );
+  if (tooltip === undefined) return Content;
+  return (
+    <Tooltip hasArrow label={tooltip}>
+      {Content}
+    </Tooltip>
   );
 }
 
