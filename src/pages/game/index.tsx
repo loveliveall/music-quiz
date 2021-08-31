@@ -39,7 +39,8 @@ type ProblemLevel = {
   lvl: number,
   duration: number,
 };
-function getProblemLevel(qNo: number): ProblemLevel {
+function getProblemLevel(qNo: number, config: Config): ProblemLevel {
+  if (config.easyMode) return { lvl: 0, duration: 10 };
   if (qNo <= 5) return { lvl: 1, duration: 3 };
   if (qNo <= 10) return { lvl: 2, duration: 2 };
   if (qNo <= 15) return { lvl: 3, duration: 1.5 };
@@ -48,15 +49,12 @@ function getProblemLevel(qNo: number): ProblemLevel {
   return { lvl: 6, duration: 0.5 };
 }
 
-function genAudioPath(qNo: number, answerId: string, problemPos: number): string {
-  const { lvl } = getProblemLevel(qNo);
-  const filename = sha256(`${answerId}-${problemPos}-${lvl}`);
+function genAudioPath(qNo: number, answerId: string, problemPos: number, config: Config): string {
+  const { lvl } = getProblemLevel(qNo, config);
+  const pPos = config.easyMode ? 30 : problemPos; // Easy mode always start from 30 sec
+  const filename = sha256(`${answerId}-${pPos}-${lvl}`);
   const lvlStr = `0${lvl}`.slice(-2);
   return `https://rinachan-box.s3-us-west-2.amazonaws.com/music-quiz/audio/level${lvlStr}/${filename}.mp3`;
-}
-function genEasyAudioPath(answerId: string): string {
-  const filename = sha256(`${answerId}-30-0`);
-  return `https://rinachan-box.s3-us-west-2.amazonaws.com/music-quiz/audio/level00/${filename}.mp3`;
 }
 
 function SubText({ children }: React.PropsWithChildren<{}>) {
@@ -108,7 +106,7 @@ function Game() {
   const {
     qNo, answer, problemPos, judgeResult, wrongCount,
   } = gameState;
-  const { duration } = getProblemLevel(qNo);
+  const { duration } = getProblemLevel(qNo, config);
 
   const onSubmission = () => {
     if (selectedSongId === answer.id) {
@@ -161,7 +159,7 @@ function Game() {
       <Text>{`문제 길이: ${config.easyMode ? 10 : duration}초`}</Text>
       {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
-        src={config.easyMode ? genEasyAudioPath(answer.id) : genAudioPath(qNo, answer.id, problemPos)}
+        src={genAudioPath(qNo, answer.id, problemPos, config)}
         controls
       >
         HTML audio tag is not supported
