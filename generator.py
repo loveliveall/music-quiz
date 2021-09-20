@@ -6,7 +6,8 @@ PROBLEM_POS_DOMAIN = [5, 14, 23, 32, 41, 50, 59, 68, 77, 86, 95, 104, 113, 122, 
 
 directory = "muse"
 prefix = "M"
-songCount = 119
+startIdx = 1
+endIdx = 120
 
 # Generate directories
 for i in range(0, 7):
@@ -24,7 +25,7 @@ def getDuration(lvl):
     if lvl == 6: return 0.5
     return None
 
-for songIdx in range(1, songCount + 1):
+for songIdx in range(startIdx, endIdx):
     songStr = f"0000{songIdx}"[-4:]
     songName = f"{prefix}{songStr}"
     for lvl in range(1, 7):
