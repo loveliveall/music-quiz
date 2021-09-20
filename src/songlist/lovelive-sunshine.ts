@@ -967,9 +967,16 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     name: { jp: 'OKAWARI Happy life!', kr: 'OKAWARI Happy life!' },
     artist: '타카미 치카',
     year: 2021,
-    alias: [],
+    alias: ['오카와리 해피 라이프!'],
   },
   // A0138 moved to after A0022 for ordering
+  {
+    id: 'A0139',
+    name: { jp: 'Love Spiral Tower', kr: 'Love Spiral Tower' },
+    artist: '사쿠라우치 리코',
+    year: 2021,
+    alias: ['러브 스파이럴 타워', 'LST'],
+  },
 ];
 
 // LOVELIVE_SUNSHINE_SONGS.forEach((song, idx) => {
