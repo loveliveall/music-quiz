@@ -977,6 +977,27 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     year: 2021,
     alias: ['러브 스파이럴 타워', 'LST'],
   },
+  {
+    id: 'A0140',
+    name: { jp: '1STAR', kr: '1STAR' },
+    artist: '쿠로사와 루비',
+    year: 2021,
+    alias: ['원스타', '준장'],
+  },
+  {
+    id: 'A0141',
+    name: { jp: 'KU-RU-KU-RU Cruller!', kr: 'KU-RU-KU-RU Cruller!' },
+    artist: 'Aqours',
+    year: 2021,
+    alias: ['크루크루 크룰러', '쿠루쿠루 크룰러', 'ㅋㅋㄹㅃㅃ'],
+  },
+  {
+    id: 'A0142',
+    name: { jp: 'SUKI for you, DREAM for you!', kr: 'SUKI for you, DREAM for you!' },
+    artist: 'Aqours',
+    year: 2021,
+    alias: ['스키 포 유 드림 포 유'],
+  },
 ];
 
 // LOVELIVE_SUNSHINE_SONGS.forEach((song, idx) => {

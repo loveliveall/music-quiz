@@ -85,6 +85,35 @@ export const LOVELIVE_SUPERSTAR_SONGS: SongEntry[] = [
     year: 2021,
     alias: ['1.2.3!', '123!'],
   },
+  // 코코로 키라라라
+  {
+    id: 'L0014',
+    name: { jp: '常夏☆サンシャイン', kr: '한여름☆선샤인' },
+    artist: '시부야 카논, 탕 쿠쿠, 아라시 치사토, 헤안나 스미레',
+    year: 2021,
+    alias: ['토코나츠 선샤인'],
+  },
+  {
+    id: 'L0015',
+    name: { jp: 'Wish Song', kr: 'Wish Song' },
+    artist: 'Liella!',
+    year: 2021,
+    alias: ['위시 송'],
+  },
+  {
+    id: 'L0016',
+    name: { jp: 'バイバイしちゃえば！？', kr: '바이바이해버리면!?' },
+    artist: 'Liella!',
+    year: 2021,
+    alias: [],
+  },
+  {
+    id: 'L0017',
+    name: { jp: '瞬きの先へ', kr: '반짝임 끝에' },
+    artist: 'Liella!',
+    year: 2021,
+    alias: [],
+  },
 ];
 
 // LOVELIVE_SUPERSTAR_SONGS.forEach((song, idx) => {
