@@ -1,7 +1,7 @@
 import hashlib
 import boto3
 
-TEST_TARGETS = ['A0140', 'A0141', 'A0142', 'L0014', 'L0015', 'L0016', 'L0017']
+TEST_TARGETS = ['M0001']
 PROBLEM_POS_DOMAIN = [5, 14, 23, 32, 41, 50, 59, 68, 77, 86, 95, 104, 113, 122, 131, 140, 149, 158, 167, 176]
 
 BUCKET = 'rinachan-box'

@@ -85,7 +85,13 @@ export const LOVELIVE_SUPERSTAR_SONGS: SongEntry[] = [
     year: 2021,
     alias: ['1.2.3!', '123!'],
   },
-  // 코코로 키라라라
+  {
+    id: 'L0013',
+    name: { jp: '心キラララ', kr: '마음 반짝짝쨕' },
+    artist: '시부야 카논',
+    year: 2021,
+    alias: ['코코로 키라라라'],
+  },
   {
     id: 'L0014',
     name: { jp: '常夏☆サンシャイン', kr: '한여름☆선샤인' },
