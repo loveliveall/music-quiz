@@ -998,6 +998,14 @@ export const LOVELIVE_SUNSHINE_SONGS: SongEntry[] = [
     year: 2021,
     alias: ['스키 포 유 드림 포 유'],
   },
+  {
+    id: 'A0143',
+    name: { jp: '涙×', kr: '눈물×' },
+    artist: 'Aqours',
+    year: 2021,
+    alias: ['눈물x', '나미다쟈나이', '즙ㄴ', '즙x'],
+  },
+
 ];
 
 // LOVELIVE_SUNSHINE_SONGS.forEach((song, idx) => {
